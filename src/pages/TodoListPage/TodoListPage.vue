@@ -1,6 +1,6 @@
 <template>
-  <main>
+  <div>
     <router-view class="view header" name="header"/>
-    <router-view class="view default" name="default"/>
-  </main>
+    TodoListPage
+  </div>
 </template>

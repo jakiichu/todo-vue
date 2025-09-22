@@ -1,6 +1,9 @@
+<script setup lang="ts">
+</script>
+
 <template>
-  <main>
+  <div>
     <router-view class="view header" name="header"/>
-    <router-view class="view default" name="default"/>
-  </main>
+    TodoDetailsPage
+  </div>
 </template>
