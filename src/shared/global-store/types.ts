@@ -1,3 +1,5 @@
+import type {IPaginationDto} from "@/shared/interface/common";
+
 interface ITodoEntity {
     id: string;
     todo: string
@@ -5,11 +7,12 @@ interface ITodoEntity {
     userId: number
 }
 
+interface ITodos extends IPaginationDto {
+    data: Array<ITodoEntity>
+}
+
 interface IGlobalState {
-    todos: Array<ITodoEntity>
-    total: number,
-    skip: number
-    limit: number
+    todo: ITodos
 }
 
 export type {IGlobalState}
