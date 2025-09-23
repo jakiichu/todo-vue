@@ -1,5 +1,17 @@
 <script setup>
+import {ERouterName} from "@/shared/enum/router.js";
+import {PhPencilSimple, PhTrash} from "@phosphor-icons/vue";
+
+import {useRouter} from 'vue-router'
+
 const {todos} = defineProps(['todos'])
+
+const router = useRouter();
+
+const goToPage = (id) => {
+  router.push({name: ERouterName.ONE, params: {id}})
+};
+
 </script>
 
 <template>
@@ -18,7 +30,8 @@ const {todos} = defineProps(['todos'])
       </tr>
       </thead>
       <tbody>
-      <tr class="border-t border-background-dark/10 dark:border-background-light/10" v-for="todo in todos"
+      <tr @click="goToPage(todo.id)" class="border-t border-background-dark/10 dark:border-background-light/10"
+          v-for="todo in todos"
           :key="todo.id">
         <td class="p-4 text-center">
           <input
@@ -28,12 +41,14 @@ const {todos} = defineProps(['todos'])
         <td class="p-4 text-background-dark dark:text-background-light">Grocery shopping</td>
         <td class="p-4">
           <div class="flex justify-center items-center gap-2">
-            <button class="p-2 rounded-full hover:bg-primary/10 text-primary transition-colors">
-              <span class="material-symbols-outlined">edit</span>
-            </button>
-            <button class="p-2 rounded-full hover:bg-primary/10 text-primary transition-colors">
-              <span class="material-symbols-outlined">delete</span>
-            </button>
+            <router-link :to="{ name: ERouterName.EDIT, params: { id: todo.id } }"
+                         class="p-2 rounded-full hover:bg-primary/10 text-primary transition-colors" @click.stop>
+              <PhPencilSimple :size="24"/>
+            </router-link>
+            <router-link :to="{ name: ERouterName.DELETE, params: { id: todo.id } }"
+                         class="p-2 rounded-full hover:bg-primary/10 text-primary transition-colors" @click.stop>
+              <PhTrash :size="24"/>
+            </router-link>
           </div>
         </td>
       </tr>
@@ -41,3 +56,4 @@ const {todos} = defineProps(['todos'])
     </table>
   </div>
 </template>
+

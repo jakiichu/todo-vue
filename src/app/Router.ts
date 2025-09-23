@@ -4,15 +4,19 @@ import AddTodoAddTodoPage from "@/pages/AddTodo/AddTodoPage.vue";
 import DeleteTodoDeleteTodoPage from "@/pages/DeleteTodo/DeleteTodoPage.vue";
 import EditTodoPage from "@/pages/EditTodo/EditTodoPage.vue";
 import TodoDetailsPage from "@/pages/TodoDetailsPage/TodoDetailsPage.vue";
-import {ERouterPath} from "@/shared/enum/router";
+import {ERouterName, ERouterPath} from "@/shared/enum/router";
 import Header from "./layout/Header.vue";
 
 const routes: RouteRecordRaw[] = [
-    {path: ERouterPath.MAIN, components: {default: TodoListPage, header: Header},},
-    {path: ERouterPath.ADD, components: {default: AddTodoAddTodoPage, header: Header},},
-    {path: ERouterPath.DELETE, components: {default: DeleteTodoDeleteTodoPage, header: Header},},
-    {path: ERouterPath.EDIT, components: {default: EditTodoPage, header: Header},},
-    {path: ERouterPath.ONE, components: {default: TodoDetailsPage, header: Header},},
+    {name: ERouterName.MAIN, path: ERouterPath.MAIN, components: {default: TodoListPage, header: Header},},
+    {name: ERouterName.ADD, path: ERouterPath.ADD, components: {default: AddTodoAddTodoPage, header: Header},},
+    {
+        name: ERouterName.DELETE,
+        path: ERouterPath.DELETE,
+        components: {default: DeleteTodoDeleteTodoPage, header: Header},
+    },
+    {name: ERouterName.EDIT, path: ERouterPath.EDIT, components: {default: EditTodoPage, header: Header},},
+    {name: ERouterName.ONE, path: ERouterPath.ONE, components: {default: TodoDetailsPage, header: Header},},
 ]
 
 const router = createRouter({
