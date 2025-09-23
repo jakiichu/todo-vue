@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {PhMastodonLogo} from "@phosphor-icons/vue";
-import {ERouterPath} from "@/shared/enum/Router";
+import {PhMastodonLogo, PhPlus} from "@phosphor-icons/vue";
+import {ERouterPath} from "@/shared/enum/router";
 </script>
 
 <template>
@@ -12,8 +12,9 @@ import {ERouterPath} from "@/shared/enum/Router";
           <router-link :to='{path: ERouterPath.MAIN }'>
             <PhMastodonLogo :size="32"/>
           </router-link>
-          <router-link :to='{path: ERouterPath.ADD}' class="flex items-center gap-4">
-            button
+          <router-link :to='{path: ERouterPath.ADD}' class="rounded-2xl p-4 bg-blue-600 text-white flex gap-2">
+            <PhPlus :size="24"></PhPlus>
+            Создать новое
           </router-link>
         </div>
       </div>

@@ -1,10 +1,10 @@
-import {createMemoryHistory, createRouter, type RouteRecordRaw} from "vue-router";
+import {createRouter, createWebHistory, type RouteRecordRaw} from "vue-router";
 import TodoListPage from "@/pages/TodoListPage/TodoListPage.vue";
 import AddTodoAddTodoPage from "@/pages/AddTodo/AddTodoPage.vue";
 import DeleteTodoDeleteTodoPage from "@/pages/DeleteTodo/DeleteTodoPage.vue";
 import EditTodoPage from "@/pages/EditTodo/EditTodoPage.vue";
 import TodoDetailsPage from "@/pages/TodoDetailsPage/TodoDetailsPage.vue";
-import {ERouterPath} from "@/shared/enum/Router.ts";
+import {ERouterPath} from "@/shared/enum/router";
 import Header from "./layout/Header.vue";
 
 const routes: RouteRecordRaw[] = [
@@ -16,7 +16,7 @@ const routes: RouteRecordRaw[] = [
 ]
 
 const router = createRouter({
-    history: createMemoryHistory(),
+    history: createWebHistory(),
     routes,
 })
 
