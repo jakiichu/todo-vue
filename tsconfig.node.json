@@ -25,7 +25,8 @@
       "@/*": [
         "src/*"
       ]
-    }
+    },
+    "types": ["vuex"]
   },
   "include": [
     "src",

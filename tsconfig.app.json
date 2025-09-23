@@ -13,7 +13,9 @@
       "@/*": [
         "src/*"
       ]
-    }
+    },
+    "moduleResolution": "bundler",
+    "types": ["vuex"]
   },
   "include": [
     "src/**/*.ts",
