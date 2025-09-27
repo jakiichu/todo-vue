@@ -8,12 +8,15 @@ import {ERouterName} from "@/shared/enum/router.ts";
 
 const router = useRouter();
 
+
+const handleNavigateToMain = async () => {
+  await router.push({name: ERouterName.MAIN})
+}
+
 const todo = ref("");
 const {mutateAsync} = useMutation({
   mutationFn: CreateTodoApi,
-  onSuccess: async () => {
-    await router.push({name: ERouterName.MAIN})
-  }
+  onSuccess: handleNavigateToMain
 })
 
 async function onSubmit() {
@@ -24,6 +27,8 @@ async function onSubmit() {
     completed: false
   })
 }
+
+
 </script>
 
 <template>
@@ -50,9 +55,9 @@ async function onSubmit() {
       </div>
 
       <div class="flex justify-end space-x-4 pt-4">
-        <button
-            type="button"
-            class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark"
+        <button @click="handleNavigateToMain"
+                type="button"
+                class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark"
         >
           Cancel
         </button>
