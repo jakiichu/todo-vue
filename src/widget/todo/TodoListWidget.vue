@@ -38,7 +38,7 @@ const goToPage = (id) => {
               class="form-checkbox h-5 w-5 rounded border-background-dark/20 dark:border-background-light/20 bg-background-light dark:bg-background-dark text-primary focus:ring-primary/50"
               type="checkbox"/>
         </td>
-        <td class="p-4 text-background-dark dark:text-background-light">Grocery shopping</td>
+        <td class="p-4 text-background-dark dark:text-background-light">{{ todo.todo }}</td>
         <td class="p-4">
           <div class="flex justify-center items-center gap-2">
             <router-link :to="{ name: ERouterName.EDIT, params: { id: todo.id } }"
